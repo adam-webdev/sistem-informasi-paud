@@ -30,8 +30,8 @@
                             <div class="col-lg-20">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Sistem Informasi Inventory<br>Kampus<br>
-                                            <br><img src="{{ asset('asset/img/foto.jpg') }}" width="160">
+                                        <h1 class="h4 text-gray-900 mb-4">Sistem Informasi <br>Paud<br>
+                                            <br><img src="{{ asset('asset/img/logo.png') }}" width="160">
                                         </h1>
                                     </div>
                                     <form method="POST" action="{{ route('login') }}">

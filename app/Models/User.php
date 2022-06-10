@@ -10,7 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable,HasRoles;
+    use HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -35,10 +35,18 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast to native types.
-     *
+
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function guru()
+    {
+        return $this->hasOne(Guru::class);
+    }
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class);
+    }
 }

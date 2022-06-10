@@ -75,7 +75,8 @@
                             <select id="roles" name="roles" class="form-control" required>
                                 <option value="">--Pilih Roles--</option>
                                 <option value="Admin">Admin</option>
-                                <option value="Kaprodi">Kaprodi</option>
+                                <option value="Siswa">Siswa</option>
+                                <option value="Guru">Guru</option>
                             </select>
                         </div>
                         <div class="form-group">

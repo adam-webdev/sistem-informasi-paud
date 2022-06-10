@@ -32,9 +32,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand text-white d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-0">
-                    <img src="{{ asset('asset/img/foto.jpg') }}" width="60">
+                    <img src="{{ asset('asset/img/logo.png') }}" width="60">
                 </div>
-                <div class="sidebar-brand-text mx-2">Inventory Kampus </div>
+                <div class="sidebar-brand-text mx-2">Sistem Informasi PAUD </div>
             </a>
 
             <!-- Divider -->
@@ -49,29 +49,41 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed text-white" href="{{ route('user.index') }}" data-toggle="collapse"
-                    data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed text-white" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Menu Master</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item fas fa-folder" href="{{ route('barang.index') }}"> Master Barang </a>
-                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('barang_masuk.index') }}">
+                        <a class="collapse-item fas fa-users" href="{{ route('kelas.index') }}"> Data Kelas </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('jabatan.index') }}"> Data Jabatan </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('siswa.index') }}"> Data Siswa </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('user.index') }}"> Data User </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('guru.index') }}"> Data Guru </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('tahun-ajaran.index') }}"> Data Tahun
+                            Ajaran
+                        </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('jadwal.index') }}">Data Jadwal
+                        </a>
+                        <a class="collapse-item fas fa-users" href="{{ route('absensi.index') }}">Data Absensi
+                        </a>
+
+                        {{-- <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('barang_masuk.index') }}">
                             Barang masuk</a>
                         <a class="collapse-item fas fa-arrow-circle-left" href="{{ route('barang_rusak.index') }}">
                             Barang Rusak</a>
                         <a class="collapse-item fas fa-arrow-circle-left" href="{{ route('kondisi.index') }}">
                             Kondisi Barang</a>
                         <a class="collapse-item fas fa-door-open" href="{{ route('ruangan.index') }}">
-                            <span>Ruangan</span></a>
+                            <span>Ruangan</span></a> --}}
                         {{-- <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 4</a>
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a> --}}
                     </div>
                 </div>
             </li>
-            @role('Admin')
+            {{-- @role('Admin')
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('user.index') }}">
                         <i class="fas fa-users"></i>
@@ -83,10 +95,10 @@
                         <i class="fas fa-external-link-alt"></i>
                         <span>Letak Barang</span></a>
                 </li>
-            @endrole
+            @endrole --}}
             <!-- Nav Item - Pages Collapse Menu -->
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed text-white" href="{{ route('laporan.barang_masuk') }}"
                     data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true"
                     aria-controls="collapsePages1">
@@ -96,8 +108,7 @@
                 <div id="collapsePages1" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item fas fa-arrow-circle-right"
-                            href="{{ route('laporan.barang_masuk') }}">
+                        <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('laporan.barang_masuk') }}">
                             Barang Masuk</a>
                         <a class="collapse-item fas fa-arrow-circle-left" href="{{ route('laporan.barang_rusak') }}">
                             Barang Rusak</a>
@@ -108,7 +119,7 @@
                             Letak Barang</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Tables -->
             {{-- <li class="nav-item">
@@ -148,7 +159,7 @@
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <div class="input-group-append">
-                                <h4>Sistem inventory Kampus</h4>
+                                <h4>Sistem Informasi PAUD</h4>
                             </div>
                         </div>
                     </form>
@@ -224,7 +235,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Create By: Nadya indah<br>Copyright &copy; Sistem Invetory Kampus. 2021</span>
+                        <span>Create By: Me<br>Copyright &copy; Sistem Informasi PAUD. 2022</span>
                     </div>
                 </div>
             </footer>

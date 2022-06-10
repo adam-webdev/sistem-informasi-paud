@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use FontLib\Table\Type\cmap;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class UserController extends Controller
+class PenilaianHasilKaryaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('admin.user', compact('user'));
+        $data = "adam";
+        return view('penilaian.index', compact('data'));
     }
 
     /**
@@ -37,21 +36,9 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $new_user = new User;
-        $new_user->name = $request->name;
-        $new_user->email = $request->email;
-        $new_user->password = bcrypt($request->password);
-        if ($request->get('roles') === "Admin") {
-            $new_user->assignRole("Admin");
-        } else if ($request->get('roles') === "Guru") {
-            $new_user->assignRole("Guru");
-        } else {
-            $new_user->assignRole("Siswa");
-        }
-        $new_user->save();
-        Alert::success("Tersimpan", "Data Berhasil Disimpan!");
-        return redirect()->route('user.index');
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -92,12 +79,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
-        $user->removeRole("Admin", "Guru", "Siswa");
-        Alert::success("Terhapus", "Data Berhasil Terhapus");
-        return redirect()->route('user.index');
+        //
     }
 }

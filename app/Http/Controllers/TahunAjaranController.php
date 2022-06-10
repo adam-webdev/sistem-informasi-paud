@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\TahunAjaran;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserController extends Controller
+class TahunAjaranController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $user = User::all();
-        return view('admin.user', compact('user'));
+        $tahun = TahunAjaran::all();
+        return view('tahun-ajaran.index', compact('tahun'));
     }
 
     /**
@@ -37,21 +32,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $new_user = new User;
-        $new_user->name = $request->name;
-        $new_user->email = $request->email;
-        $new_user->password = bcrypt($request->password);
-        if ($request->get('roles') === "Admin") {
-            $new_user->assignRole("Admin");
-        } else if ($request->get('roles') === "Guru") {
-            $new_user->assignRole("Guru");
-        } else {
-            $new_user->assignRole("Siswa");
-        }
-        $new_user->save();
-        Alert::success("Tersimpan", "Data Berhasil Disimpan!");
-        return redirect()->route('user.index');
+        $tahun = new TahunAjaran();
+        $tahun->kode_tahun = $request->kode_tahun;
+        $tahun->tahun_ajaran = $request->tahun_ajaran;
+        $tahun->semester = $request->semester;
+        $tahun->save();
+        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
+        return redirect()->route('tahun-ajaran.index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -71,7 +60,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tahun = TahunAjaran::findOrFail($id);
+        return view('tahun-ajaran.edit', compact('tahun'));
     }
 
     /**
@@ -83,7 +73,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tahun = TahunAjaran::findOrFail($id);
+        $tahun->kode_tahun = $request->kode_tahun;
+        $tahun->tahun_ajaran = $request->tahun_ajaran;
+        $tahun->semester = $request->semester;
+        $tahun->save();
+        Alert::success('Berhasil', 'Data Berhasil Diubah');
+        return redirect()->route('tahun-ajaran.index');
     }
 
     /**
@@ -94,10 +90,9 @@ class UserController extends Controller
      */
     public function delete($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
-        $user->removeRole("Admin", "Guru", "Siswa");
-        Alert::success("Terhapus", "Data Berhasil Terhapus");
-        return redirect()->route('user.index');
+        $tahun = TahunAjaran::findOrFail($id);
+        $tahun->delete();
+        Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        return redirect()->route('tahun-ajaran.index');
     }
 }

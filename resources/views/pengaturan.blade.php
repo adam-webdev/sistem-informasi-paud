@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+{{-- @extends('layouts.layout')
 @section('content')
 @include('sweetalert::alert')
     <form action="{{route('perusahaan.update', [$perusahaan->id])}}" method="POST">
@@ -32,9 +32,9 @@
                     <input id="title" type="number" name="title" class="form-control" required value="{{$perusahaan->title}}">
                 </div>
             </div>
-        
+
             <input type="submit" class="btn btn-success btn-send" value="Update">
             <input type="Button" class="btn btn-primary btn-send" value="Kembali" onclick="history.go(-1)">
         </fieldset>
     </form>
-@endsection
+@endsection --}}

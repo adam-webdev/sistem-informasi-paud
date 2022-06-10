@@ -22,11 +22,18 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole('Admin');
 
-        $direktur = User::create([
-            'name' => 'kaprodi',
-            'email' => 'kaprodi@gmail.com',
-            'password' => Hash::make('kaprodi123')
+        $siswa = User::create([
+            'name' => 'siswa',
+            'email' => 'siswa@gmail.com',
+            'password' => Hash::make('siswa123')
         ]);
-        $direktur->assignRole('Kaprodi');
+        $siswa->assignRole('Siswa');
+
+        $guru = User::create([
+            'name' => 'guru',
+            'email' => 'guru@gmail.com',
+            'password' => Hash::make('guru123')
+        ]);
+        $guru->assignRole('Guru');
     }
 }

@@ -2,21 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserController extends Controller
+class KelasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $user = User::all();
-        return view('admin.user', compact('user'));
+        $kelas = Kelas::all();
+        return view('kelas.index', compact('kelas'));
     }
 
     /**
@@ -37,21 +32,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $new_user = new User;
-        $new_user->name = $request->name;
-        $new_user->email = $request->email;
-        $new_user->password = bcrypt($request->password);
-        if ($request->get('roles') === "Admin") {
-            $new_user->assignRole("Admin");
-        } else if ($request->get('roles') === "Guru") {
-            $new_user->assignRole("Guru");
-        } else {
-            $new_user->assignRole("Siswa");
-        }
-        $new_user->save();
-        Alert::success("Tersimpan", "Data Berhasil Disimpan!");
-        return redirect()->route('user.index');
+        $kelas = new Kelas();
+        $kelas->kode_kelas = $request->kode_kelas;
+        $kelas->nama_kelas = $request->nama_kelas;
+        $kelas->save();
+        Alert::success('Berhasil', 'Data Berhasil Ditambahkan');
+        return redirect()->route('kelas.index');
     }
+
     /**
      * Display the specified resource.
      *
@@ -71,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelas = Kelas::findOrFail($id);
+        return view('kelas.edit', compact('kelas'));
     }
 
     /**
@@ -83,7 +72,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kelas = Kelas::findOrFail($id);
+        $kelas->kode_kelas = $request->kode_kelas;
+        $kelas->nama_kelas = $request->nama_kelas;
+        $kelas->save();
+        Alert::success('Berhasil', 'Data Berhasil Diubah');
+        return redirect()->route('kelas.index');
     }
 
     /**
@@ -94,10 +88,9 @@ class UserController extends Controller
      */
     public function delete($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
-        $user->removeRole("Admin", "Guru", "Siswa");
-        Alert::success("Terhapus", "Data Berhasil Terhapus");
-        return redirect()->route('user.index');
+        $kelas = Kelas::findOrFail($id);
+        $kelas->delete();
+        Alert::success('Berhasil', 'Data Berhasil Dihapus');
+        return redirect()->route('kelas.index');
     }
 }

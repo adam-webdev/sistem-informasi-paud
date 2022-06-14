@@ -5,9 +5,14 @@
         <h1 class="h3 mb-0 text-gray-800">Data Siswa</h1>
         <!-- Button trigger modal -->
         @role('Admin')
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                + Tambah
-            </button>
+            <div>
+                <a href="{{ route('laporan.siswa') }}" class="btn btn-success">Print <span
+                        class=" fas fa-fw
+            fa-file-pdf"></span></a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    + Tambah
+                </button>
+            </div>
         @endrole
     </div>
     <!-- Modal -->

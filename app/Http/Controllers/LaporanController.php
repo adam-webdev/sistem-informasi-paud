@@ -5,35 +5,31 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Barang_keluar;
 use App\Models\BarangRusak;
+use App\Models\Guru;
 use App\Models\Kondisi;
 use App\Models\PindahBarang;
 use App\Models\Ruangan;
+use App\Models\Siswa;
 use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
 {
-    public function view_barang_masuk()
+
+
+    public function siswa(Request $request)
     {
-        return view('laporan.barang-masuk.index');
+        $data = Siswa::with('kelas', 'user')->get();
+        $pdf = PDF::loadview('siswa.print', compact('data'))->setPaper('A4');
+        return $pdf->stream('laporan-siswa.pdf');
     }
 
-    public function barang_masuk(Request $request)
+    public function guru(Request $request)
     {
-        $periode = $request->periode;
-        if ($periode == "all") {
-            $data = Barang::all();
-            $pdf = PDF::loadview('laporan.barang-masuk.print', compact('data', 'periode'))->setPaper('A4');
-            return $pdf->stream('laporan-all.pdf');
-        } else if ($periode == "periode") {
-            $tgl_awal = $request->awal;
-            $tgl_akhir = $request->akhir;
-            $data = Barang::whereBetween('created_at', [$tgl_awal, $tgl_akhir])
-                ->orderBy('created_at', 'ASC')->get();
-            $pdf = PDF::loadview('laporan.barang-masuk.print', compact('data', 'periode', 'tgl_awal', 'tgl_akhir'))->setPaper('A4');
-            return $pdf->stream('laporan-periode-barang-masuk.pdf');
-        }
+        $data = Guru::with('jabatan', 'user')->get();
+        $pdf = PDF::loadview('guru.print', compact('data'))->setPaper('A4');
+        return $pdf->stream('laporan-guru.pdf');
     }
 
     public function view_barang_rusak()

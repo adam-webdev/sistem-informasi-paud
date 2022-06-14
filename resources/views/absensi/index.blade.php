@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <label for="jadwal_id">Jadwal :</label>
                             <select name="jadwal_id" class="form-control" required id="jadwal_id">
-                                <option value="">-- Pilih Kelas --</option>
+                                <option value="">-- Pilih Jadwal --</option>
                                 @foreach ($jadwal as $jadwal)
                                     <option value="{{ $jadwal->id }}">{{ $jadwal->hari }} -
                                         {{ $jadwal->materi_kegiatan }}
@@ -96,13 +96,13 @@
                         <tr align="center">
                             <th>No</th>
                             <th>Hari</th>
-                            <th>Guru</th>
+                            <th>Siswa</th>
                             <th>Kelas</th>
                             <th>Tanggal</th>
                             <th>Hadir</th>
                             <th>Izin</th>
                             <th>Sakit</th>
-                            <th>Keterangan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

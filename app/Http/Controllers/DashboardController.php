@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Barang_masuk;
 use App\Models\BarangRusak;
+use App\Models\Guru;
+use App\Models\Kelas;
 use App\Models\Kondisi;
 use App\Models\Perusahaan;
 use App\Models\Ruangan;
@@ -20,11 +22,13 @@ class DashboardController extends Controller
         // $perusahaan = Perusahaan::get();
         $data = Auth::user()->name;
         $siswa = Siswa::count();
+        $guru = Guru::count();
+        $kelas = Kelas::count();
         // $ruangan = Ruangan::count();
-        // $pengguna = User::count();
+        $pengguna = User::count();
         // $barang_rusak = BarangRusak::count();
         // $barang_masuk = Barang_masuk::count();
 
-        return view("dashboard", compact("data", "siswa"));
+        return view("dashboard", compact("data", "siswa", "pengguna", "guru", "kelas"));
     }
 }

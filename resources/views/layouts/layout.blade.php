@@ -18,7 +18,9 @@
     <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-
+    <style>
+        @yield('style');
+    </style>
 </head>
 
 <body id="page-top">
@@ -48,6 +50,7 @@
                     <i class="fa fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed text-white" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -57,18 +60,20 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item fas fa-users" href="{{ route('kelas.index') }}"> Data Kelas </a>
-                        <a class="collapse-item fas fa-users" href="{{ route('jabatan.index') }}"> Data Jabatan </a>
-                        <a class="collapse-item fas fa-users" href="{{ route('siswa.index') }}"> Data Siswa </a>
+                        <a class="collapse-item fas fa-door-open" href="{{ route('kelas.index') }}"> Data Kelas </a>
+                        <a class="collapse-item fas fa-chalkboard-teacher" href="{{ route('jabatan.index') }}"> Data
+                            Jabatan </a>
+                        <a class="collapse-item fas fa-user-graduate" href="{{ route('siswa.index') }}"> Data Siswa
+                        </a>
                         <a class="collapse-item fas fa-users" href="{{ route('user.index') }}"> Data User </a>
-                        <a class="collapse-item fas fa-users" href="{{ route('guru.index') }}"> Data Guru </a>
-                        <a class="collapse-item fas fa-users" href="{{ route('tahun-ajaran.index') }}"> Data Tahun
+                        <a class="collapse-item fas fa-user-cog"" href=" {{ route('guru.index') }}"> Data Guru </a>
+                        {{-- <a class="collapse-item fas fa-users" href="{{ route('tahun-ajaran.index') }}"> Data Tahun
                             Ajaran
                         </a>
                         <a class="collapse-item fas fa-users" href="{{ route('jadwal.index') }}">Data Jadwal
                         </a>
                         <a class="collapse-item fas fa-users" href="{{ route('absensi.index') }}">Data Absensi
-                        </a>
+                        </a> --}}
 
                         {{-- <a class="collapse-item fas fa-arrow-circle-right" href="{{ route('barang_masuk.index') }}">
                             Barang masuk</a>
@@ -82,6 +87,26 @@
                         <a class="collapse-item fas fa-arrow-circle-right" href="#"> Sub Menu 5</a> --}}
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('tahun-ajaran.index') }}">
+                    <i class="fa fa-calendar-alt"></i>
+                    <span>Tahun Ajaran</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('jadwal.index') }}">
+                    <i class="far fa-clock"></i>
+                    <span>Jadwal</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('absensi.index') }}">
+                    <i class="fas fa-book"></i>
+                    <span>Absensi</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('raport.index') }}">
+                    <i class="fas fa-book"></i>
+                    <span>Raport</span></a>
             </li>
             {{-- @role('Admin')
                 <li class="nav-item">

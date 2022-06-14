@@ -17,22 +17,22 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr align="center">
-                            <th width="5%">User Id</th>
+                            <th width="5%">No</th>
                             <th width="25%">Nama</th>
                             <th width="20%">Email</th>
-                            <th width="15%">Roles/Akses</th>
+                            <th width="15%">Roles / Level</th>
                             <th width="25%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($user as $row)
                             <tr>
-                                <td>{{ $row->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->name }}</td>
                                 <td>{{ $row->email }}</td>
                                 @foreach ($row->roles as $r)
                                     <td>
-                                        {{ $r->id }}
+                                        {{ $r->name }}
                                     </td>
                                 @endforeach
                                 @role('Admin')
@@ -64,9 +64,9 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label control-label">Nama User :</label>
-                            <input type="text" name="name" required class="form-control" autocomplete="off">
-                        </div>
-                        <div class="form-group">
+                            <input type="text" name="name" required class="form-control" ">
+                            </div>
+                            <div class=" form-group">
                             <label control-label">Email User :</label>
                             <input type="email" name="email" required class="form-control">
                         </div>

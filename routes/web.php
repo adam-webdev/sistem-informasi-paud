@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AbsensiController, BarangController, Barang_MasukController, BarangRusakController, DashboardController, GuruController, JabatanController, JadwalController, KelasController, KondisiController, LaporanController, PenilaianController, UserController, Perusahaan, PindahBarangController, RuanganController, SiswaController, TahunAjaranController};
+use App\Http\Controllers\{AbsensiController, BarangController, Barang_MasukController, BarangRusakController, DashboardController, GuruController, JabatanController, JadwalController, KelasController, KondisiController, LaporanController, PenilaianController, UserController, Perusahaan, PindahBarangController, RaportController, RuanganController, SiswaController, TahunAjaranController};
 use App\Models\PenilaianHasilKarya;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -40,9 +40,16 @@ Route::get('/jadwal/hapus/{id}', [JadwalController::class, "delete"]);
 
 Route::resource('/siswa', SiswaController::class);
 Route::get('/siswa/hapus/{id}', [SiswaController::class, "delete"]);
+Route::get('/laporan/siswa', [LaporanController::class, "siswa"])->name('laporan.siswa');
+
+Route::resource('/raport', RaportController::class);
+Route::get('/raport/hapus/{id}', [RaportController::class, "delete"]);
+Route::get('/laporan/raport', [LaporanController::class, "raport"])->name('laporan.raport');
 
 Route::resource('/guru', GuruController::class);
 Route::get('/guru/hapus/{id}', [GuruController::class, "delete"]);
+Route::get('/laporan/guru', [LaporanController::class, "guru"])->name('laporan.guru');
+
 
 Route::resource('/absensi', AbsensiController::class);
 Route::get('/absensi/hapus/{id}', [AbsensiController::class, "delete"]);

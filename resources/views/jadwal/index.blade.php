@@ -83,6 +83,7 @@
                             <th>Kelas</th>
                             <th>Materi Kegiatan</th>
                             <th>Keterangan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

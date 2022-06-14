@@ -14,9 +14,9 @@ class AbsensiController extends Controller
     public function index()
     {
         $absensi = Absensi::with('siswa', 'tahunajaran', 'jadwal')->get();
-        $siswa = Siswa::get();
-        $tahunajaran = TahunAjaran::get();
-        $jadwal = Jadwal::get();
+        $siswa = Siswa::all();
+        $tahunajaran = TahunAjaran::all();
+        $jadwal = Jadwal::all();
         return view('absensi.index', compact('absensi', 'siswa', 'tahunajaran', 'jadwal'));
     }
     public function store(Request $request)

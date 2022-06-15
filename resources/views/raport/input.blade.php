@@ -2,7 +2,7 @@
 @section('content')
     @include('sweetalert::alert')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Data Raport</h1>
+        <h1 class="h3 mb-0 text-gray-800">Input Data Raport</h1>
         <!-- Button trigger modal -->
 
     </div>
@@ -33,8 +33,8 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="siswa_id">Nama Guru :</label>
-                    <select name="siswa_id" class="form-control" required id="siswa_id">
+                    <label for="guru">Nama Guru :</label>
+                    <select name="guru_id" class="form-control" required id="guru">
                         <option value="">-- Pilih Nama Guru --</option>
                         @foreach ($guru as $guru)
                             <option value="{{ $guru->id }}">{{ $guru->nama_lengkap }}</option>
@@ -79,7 +79,7 @@
                         <tr>
                             <td></td>
                             <td>Mengetahui agama yang dianutnya</td>
-                            <td><input type="radio" value=BB" name="agama_moral_a1"></td>
+                            <td><input type="radio" value=BB" name="agama_moral_a1" required></td>
                             <td><input type="radio" value=MB" name="agama_moral_a1"></td>
                             <td><input type="radio" value="BSH" name="agama_moral_a1"></td>
                             <td><input type="radio" value="BSB" name="agama_moral_a1"></td>
@@ -87,7 +87,7 @@
                         <tr>
                             <td></td>
                             <td>Mengucapkan salam dan membalas salam</td>
-                            <td><input type="radio" value="BB" name="agama_moral_a2"></td>
+                            <td><input type="radio" value="BB" name="agama_moral_a2" required></td>
                             <td><input type="radio" value="MB" name="agama_moral_a2"></td>
                             <td><input type="radio" value="BSH" name="agama_moral_a2"></td>
                             <td><input type="radio" value="BSB" name="agama_moral_a2"></td>
@@ -95,7 +95,7 @@
                         <tr>
                             <td></td>
                             <td>Mengenal perilaku sopan dan buruk </td>
-                            <td><input type="radio" value="BB" name="agama_moral_a3"></td>
+                            <td><input type="radio" value="BB" name="agama_moral_a3" required></td>
                             <td><input type="radio" value="MB" name="agama_moral_a3"></td>
                             <td><input type="radio" value="BSH" name="agama_moral_a3"></td>
                             <td><input type="radio" value="BSB" name="agama_moral_a3"></td>
@@ -103,7 +103,7 @@
                         <tr>
                             <td></td>
                             <td>Mengucapkan doa sebelum dan sesudah melakukan sesuatu</td>
-                            <td><input type="radio" value="BB" name="agama_moral_a4"></td>
+                            <td><input type="radio" value="BB" name="agama_moral_a4" required></td>
                             <td><input type="radio" value="MB" name="agama_moral_a4"></td>
                             <td><input type="radio" value="BSH" name="agama_moral_a4"></td>
                             <td><input type="radio" value="BSB" name="agama_moral_a4"></td>
@@ -124,7 +124,7 @@
                         <tr>
                             <td></td>
                             <td>Membuat garis vertikal, horizontal, lengkung kiri/kanan, miring dan lingkaran</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_a1"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_a1" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_a1"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_a1"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_a1"></td>
@@ -132,7 +132,7 @@
                         <tr>
                             <td></td>
                             <td>Menjiplak bentuk</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_a2"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_a2" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_a2"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_a2"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_a2"></td>
@@ -140,7 +140,7 @@
                         <tr>
                             <td></td>
                             <td>Mengkoordinasikan mata dan tangan untuk melakukan gerakan yang rumit</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_a3"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_a3" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_a3"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_a3"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_a3"></td>
@@ -153,7 +153,7 @@
                         <tr>
                             <td></td>
                             <td>Melakukan gerakan melompat,meloncat, dan berlari secara terkoordinasi</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b1"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b1" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b1"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b1"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b1"></td>
@@ -161,7 +161,7 @@
                         <tr>
                             <td></td>
                             <td>Melakukan gerakan menggantung (Misal,Bergelayut)</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b2"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b2" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b2"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b2"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b2"></td>
@@ -169,7 +169,7 @@
                         <tr>
                             <td></td>
                             <td>Melempar sesuatu secara terarah</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b3"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b3" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b3"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b3"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b3"></td>
@@ -177,7 +177,7 @@
                         <tr>
                             <td></td>
                             <td>Menangkap sesuatu secara tepat</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b4"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b4" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b4"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b4"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b4"></td>
@@ -185,7 +185,7 @@
                         <tr>
                             <td></td>
                             <td>Melakukan gerakan antipasi </td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b5"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b5" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b5"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b5"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b5"></td>
@@ -193,7 +193,7 @@
                         <tr>
                             <td></td>
                             <td>Menendang sesuatu secara terarah </td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b6"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b6" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b6"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b6"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b6"></td>
@@ -201,7 +201,7 @@
                         <tr>
                             <td></td>
                             <td>Memanfaatkan alat permainan di luar kelas</td>
-                            <td><input type="radio" value="BB" name="fisik_motorik_b7"></td>
+                            <td><input type="radio" value="BB" name="fisik_motorik_b7" required></td>
                             <td><input type="radio" value="MB" name="fisik_motorik_b7"></td>
                             <td><input type="radio" value="BSH" name="fisik_motorik_b7"></td>
                             <td><input type="radio" value="BSB" name="fisik_motorik_b7"></td>
@@ -218,7 +218,7 @@
                         <tr>
                             <td></td>
                             <td>Mengenal benda berdasarkan fungsi</td>
-                            <td><input type="radio" value="BB" name="kognitif_a1"></td>
+                            <td><input type="radio" value="BB" name="kognitif_a1" required></td>
                             <td><input type="radio" value="MB" name="kognitif_a1"></td>
                             <td><input type="radio" value="BSH" name="kognitif_a1"></td>
                             <td><input type="radio" value="BSB" name="kognitif_a1"></td>
@@ -227,7 +227,7 @@
                             <td></td>
                             <td> Mengklasifikasikan benda berdasarkan fungsi,bentuk atau warna ukuran
                             </td>
-                            <td><input type="radio" value="BB" name="kognitif_a2"></td>
+                            <td><input type="radio" value="BB" name="kognitif_a2" required></td>
                             <td><input type="radio" value="MB" name="kognitif_a2"></td>
                             <td><input type="radio" value="BSH" name="kognitif_a2"></td>
                             <td><input type="radio" value="BSB" name="kognitif_a2"></td>
@@ -236,7 +236,7 @@
                             <td></td>
                             <td> Mengklasifikasikan benda berdasarkan fungsi,bentuk atau warna ukuran
                             </td>
-                            <td><input type="radio" value="BB" name="kognitif_a3"></td>
+                            <td><input type="radio" value="BB" name="kognitif_a3" required></td>
                             <td><input type="radio" value="MB" name="kognitif_a3"></td>
                             <td><input type="radio" value="BSH" name="kognitif_a3"></td>
                             <td><input type="radio" value="BSB" name="kognitif_a3"></td>
@@ -255,7 +255,7 @@
                             <td> Menyimak perkataan orang lain (Misal, Bahasa ibu atau bahasa lainnya)
 
                             </td>
-                            <td><input type="radio" value="BB" name="bahasa_a1"></td>
+                            <td><input type="radio" value="BB" name="bahasa_a1" required></td>
                             <td><input type="radio" value="MB" name="bahasa_a1"></td>
                             <td><input type="radio" value="BSH" name="bahasa_a1"></td>
                             <td><input type="radio" value="BSB" name="bahasa_a1"></td>
@@ -264,7 +264,7 @@
                             <td></td>
                             <td>Memahami cerita yang dibacakan
                             </td>
-                            <td><input type="radio" value="BB" name="bahasa_a2"></td>
+                            <td><input type="radio" value="BB" name="bahasa_a2" required></td>
                             <td><input type="radio" value="MB" name="bahasa_a2"></td>
                             <td><input type="radio" value="BSH" name="bahasa_a2"></td>
                             <td><input type="radio" value="BSB" name="bahasa_a2"></td>
@@ -274,7 +274,7 @@
                             <td>Bertanya dengan kalimat yang benar
 
                             </td>
-                            <td><input type="radio" value="BB" name="bahasa_a3"></td>
+                            <td><input type="radio" value="BB" name="bahasa_a3" required></td>
                             <td><input type="radio" value="MB" name="bahasa_a3"></td>
                             <td><input type="radio" value="BSH" name="bahasa_a3"></td>
                             <td><input type="radio" value="BSB" name="bahasa_a3"></td>
@@ -285,7 +285,7 @@
 
 
                             </td>
-                            <td><input type="radio" value="BB" name="bahasa_a4"></td>
+                            <td><input type="radio" value="BB" name="bahasa_a4" required></td>
                             <td><input type="radio" value="MB" name="bahasa_a4"></td>
                             <td><input type="radio" value="BSH" name="bahasa_a4"></td>
                             <td><input type="radio" value="BSB" name="bahasa_a4"></td>
@@ -294,7 +294,7 @@
                             <td></td>
                             <td>Membuat coretan yang bermakna
                             </td>
-                            <td><input type="radio" value="BB" name="bahasa_a5"></td>
+                            <td><input type="radio" value="BB" name="bahasa_a5" required></td>
                             <td><input type="radio" value="MB" name="bahasa_a5"></td>
                             <td><input type="radio" value="BSH" name="bahasa_a5"></td>
                             <td><input type="radio" value="BSB" name="bahasa_a5"></td>
@@ -312,7 +312,7 @@
                             <td>Menunjukan sikap mandiri dalam memilih kegiatan
 
                             </td>
-                            <td><input type="radio" value="BB" name="sosial_emosional_a1"></td>
+                            <td><input type="radio" value="BB" name="sosial_emosional_a1" required></td>
                             <td><input type="radio" value="MB" name="sosial_emosional_a1"></td>
                             <td><input type="radio" value="BSH" name="sosial_emosional_a1"></td>
                             <td><input type="radio" value="BSB" name="sosial_emosional_a1"></td>
@@ -321,7 +321,7 @@
                             <td></td>
                             <td>Menunjukan rasa percaya diri
                             </td>
-                            <td><input type="radio" value="BB" name="sosial_emosional_a2"></td>
+                            <td><input type="radio" value="BB" name="sosial_emosional_a2" required></td>
                             <td><input type="radio" value="MB" name="sosial_emosional_a2"></td>
                             <td><input type="radio" value="BSH" name="sosial_emosional_a2"></td>
                             <td><input type="radio" value="BSB" name="sosial_emosional_a2"></td>
@@ -330,7 +330,7 @@
                             <td></td>
                             <td>Memahami peraturan dan disiplin
                             </td>
-                            <td><input type="radio" value="BB" name="sosial_emosional_a3"></td>
+                            <td><input type="radio" value="BB" name="sosial_emosional_a3" required></td>
                             <td><input type="radio" value="MB" name="sosial_emosional_a3"></td>
                             <td><input type="radio" value="BSH" name="sosial_emosional_a3"></td>
                             <td><input type="radio" value="BSB" name="sosial_emosional_a3"></td>
@@ -339,7 +339,7 @@
                             <td></td>
                             <td>Mau berbagi,menolong dan membantu teman
                             </td>
-                            <td><input type="radio" value="BB" name="sosial_emosional_a4"></td>
+                            <td><input type="radio" value="BB" name="sosial_emosional_a4" required></td>
                             <td><input type="radio" value="MB" name="sosial_emosional_a4"></td>
                             <td><input type="radio" value="BSH" name="sosial_emosional_a4"></td>
                             <td><input type="radio" value="BSB" name="sosial_emosional_a4"></td>
@@ -348,7 +348,7 @@
                             <td></td>
                             <td>Menunjukan antusiasme dalam melakukan permainan
                             </td>
-                            <td><input type="radio" value="BB" name="sosial_emosional_a5"></td>
+                            <td><input type="radio" value="BB" name="sosial_emosional_a5" required></td>
                             <td><input type="radio" value="MB" name="sosial_emosional_a5"></td>
                             <td><input type="radio" value="BSH" name="sosial_emosional_a5"></td>
                             <td><input type="radio" value="BSB" name="sosial_emosional_a5"></td>
@@ -365,7 +365,7 @@
                             <td></td>
                             <td>Anak mampu menikmati berbagai alunan lagu atau suara
                             </td>
-                            <td><input type="radio" value="BB" name="seni_a1"></td>
+                            <td><input type="radio" value="BB" name="seni_a1" required></td>
                             <td><input type="radio" value="MB" name="seni_a1"></td>
                             <td><input type="radio" value="BSH" name="seni_a1"></td>
                             <td><input type="radio" value="BSB" name="seni_a1"></td>
@@ -375,7 +375,7 @@
                             <td>Tertarik dengan kegiatan seni
 
                             </td>
-                            <td><input type="radio" value="BB" name="seni_a2"></td>
+                            <td><input type="radio" value="BB" name="seni_a2" required></td>
                             <td><input type="radio" value="MB" name="seni_a2"></td>
                             <td><input type="radio" value="BSH" name="seni_a2"></td>
                             <td><input type="radio" value="BSB" name="seni_a2"></td>
@@ -386,7 +386,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Batal</button>
+
                 <input type="submit" class="btn btn-primary btn-send" value="Simpan">
             </div>
         </form>

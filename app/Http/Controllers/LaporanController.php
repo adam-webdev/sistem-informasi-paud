@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absensi;
 use App\Models\Barang;
 use App\Models\Barang_keluar;
 use App\Models\BarangRusak;
 use App\Models\Guru;
 use App\Models\Kondisi;
 use App\Models\PindahBarang;
+use App\Models\Raport;
 use App\Models\Ruangan;
 use App\Models\Siswa;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -31,6 +33,25 @@ class LaporanController extends Controller
         $pdf = PDF::loadview('guru.print', compact('data'))->setPaper('A4');
         return $pdf->stream('laporan-guru.pdf');
     }
+
+    public function raport($id)
+    {
+        $raport = Raport::findOrFail($id);
+        $izin = Absensi::select('izin')->where('siswa_id', $raport->siswa->id)->sum('izin');
+        $sakit = Absensi::select('sakit')->where('siswa_id', $raport->siswa->id)->sum('sakit');
+        $hadir = Absensi::select('hadir')->where('siswa_id', $raport->siswa->id)->sum('hadir');
+
+        $data = [
+            'izin' => $izin,
+            'sakit' => $sakit,
+            'hadir' => $hadir,
+        ];
+        // ddd($data);
+        // $raport = Raport::where('id', $id)->with('siswa', 'guru', 'tahunajaran')->get();
+        $pdf = PDF::loadview('raport.print', compact('raport', 'data'))->setPaper('A4');
+        return $pdf->stream('raport.pdf');
+    }
+
 
     public function view_barang_rusak()
     {

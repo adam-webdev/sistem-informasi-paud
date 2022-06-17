@@ -35,14 +35,16 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6 box mt-4">
-                <a style="text-decoration:none; color:black; hover" href="{{ route('user.index') }}">
-                    <div class="card p-4">
-                        <p style="font-weight: 700">Data User</p>
-                        <p style="font-weight: 700; font-size:38px;">{{ $pengguna }}</p>
-                    </div>
-                </a>
-            </div>
+            @role('Admin')
+                <div class="col-md-6 box mt-4">
+                    <a style="text-decoration:none; color:black; hover" href="{{ route('user.index') }}">
+                        <div class="card p-4">
+                            <p style="font-weight: 700">Data User</p>
+                            <p style="font-weight: 700; font-size:38px;">{{ $pengguna }}</p>
+                        </div>
+                    </a>
+                </div>
+            @endrole
             <div class="col-md-6 box mt-4">
                 <a style="text-decoration:none; color:black; hover" href="{{ route('kelas.index') }}">
                     <div class="card p-4">

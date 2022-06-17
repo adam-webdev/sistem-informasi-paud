@@ -23,17 +23,17 @@ class AbsensiController extends Controller
     {
         $absensi = new Absensi();
         if ($request->absen === "Hadir") {
-            $absensi->hadir = $request->absen;
-            $absensi->izin = '-';
-            $absensi->sakit = '-';
+            $absensi->hadir = $absensi->hadir + 1;
+            $absensi->izin = 0;
+            $absensi->sakit = 0;
         } else if ($request->absen === 'Izin') {
-            $absensi->izin = $request->absen;
-            $absensi->hadir = '-';
-            $absensi->sakit = '-';
-        } else {
-            $absensi->sakit = $request->absen;
-            $absensi->izin = '-';
-            $absensi->hadir = '-';
+            $absensi->izin = $absensi->izin + 1;
+            $absensi->hadir = 0;
+            $absensi->sakit = 0;
+        } else if ($request->absen === 'Sakit') {
+            $absensi->sakit = $absensi->sakit + 1;
+            $absensi->izin = 0;
+            $absensi->hadir = 0;
         }
         $absensi->tanggal = $request->tanggal;
         $absensi->siswa_id = $request->siswa_id;
@@ -55,17 +55,17 @@ class AbsensiController extends Controller
     {
         $absensi = Absensi::findOrFail($id);
         if ($request->absen === "Hadir") {
-            $absensi->hadir = $request->absen;
-            $absensi->izin = '-';
-            $absensi->sakit = '-';
+            $absensi->hadir = $absensi->hadir + 1;
+            $absensi->izin = 0;
+            $absensi->sakit = 0;
         } else if ($request->absen === 'Izin') {
-            $absensi->izin = $request->absen;
-            $absensi->hadir = '-';
-            $absensi->sakit = '-';
-        } else {
-            $absensi->sakit = $request->absen;
-            $absensi->izin = '-';
-            $absensi->hadir = '-';
+            $absensi->izin = $absensi->izin + 1;
+            $absensi->hadir = 0;
+            $absensi->sakit = 0;
+        } else if ($request->absen === 'Sakit') {
+            $absensi->sakit = $absensi->sakit + 1;
+            $absensi->izin = 0;
+            $absensi->hadir = 0;
         }
         $absensi->tanggal = $request->tanggal;
         $absensi->siswa_id = $request->siswa_id;

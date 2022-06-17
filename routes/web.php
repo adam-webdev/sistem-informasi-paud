@@ -44,7 +44,7 @@ Route::get('/laporan/siswa', [LaporanController::class, "siswa"])->name('laporan
 
 Route::resource('/raport', RaportController::class);
 Route::get('/raport/hapus/{id}', [RaportController::class, "delete"]);
-Route::get('/laporan/raport', [LaporanController::class, "raport"])->name('laporan.raport');
+Route::get('/laporan/raport/{id}', [LaporanController::class, "raport"])->name('laporan.raport');
 
 Route::resource('/guru', GuruController::class);
 Route::get('/guru/hapus/{id}', [GuruController::class, "delete"]);

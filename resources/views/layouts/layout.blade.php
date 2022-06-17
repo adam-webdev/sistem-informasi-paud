@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Beranda</title>
+    <title>@yield('title')</title>
     <link href="{{ asset('asset/vendor/select2/dist/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -18,9 +18,7 @@
     <link href="{{ asset('asset/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <style>
-        @yield('style');
-    </style>
+
 </head>
 
 <body id="page-top">
@@ -57,16 +55,19 @@
                     <i class="fas fa-fw fa-folder-open"></i>
                     <span>Menu Master</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item fas fa-door-open" href="{{ route('kelas.index') }}"> Data Kelas </a>
-                        <a class="collapse-item fas fa-chalkboard-teacher" href="{{ route('jabatan.index') }}"> Data
-                            Jabatan </a>
+                        @hasanyrole('Admin|Guru')
+                            <a class="collapse-item fas fa-chalkboard-teacher" href="{{ route('jabatan.index') }}"> Data
+                                Jabatan </a>
+                        @endhasanyrole
+                        @role('Admin')
+                            <a class="collapse-item fas fa-users" href="{{ route('user.index') }}"> Data User </a>
+                        @endrole
+                        <a class="collapse-item fas fa-user-cog"" href=" {{ route('guru.index') }}"> Data Guru </a>
                         <a class="collapse-item fas fa-user-graduate" href="{{ route('siswa.index') }}"> Data Siswa
                         </a>
-                        <a class="collapse-item fas fa-users" href="{{ route('user.index') }}"> Data User </a>
-                        <a class="collapse-item fas fa-user-cog"" href=" {{ route('guru.index') }}"> Data Guru </a>
                         {{-- <a class="collapse-item fas fa-users" href="{{ route('tahun-ajaran.index') }}"> Data Tahun
                             Ajaran
                         </a>
@@ -88,11 +89,13 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('tahun-ajaran.index') }}">
-                    <i class="fa fa-calendar-alt"></i>
-                    <span>Tahun Ajaran</span></a>
-            </li>
+            @hasanyrole('Admin|Guru')
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('tahun-ajaran.index') }}">
+                        <i class="fa fa-calendar-alt"></i>
+                        <span>Tahun Ajaran</span></a>
+                </li>
+            @endhasanyrole
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ route('jadwal.index') }}">
                     <i class="far fa-clock"></i>
@@ -233,7 +236,8 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div> --}}
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

@@ -45,7 +45,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="keterangan">Keterangan :</label>
+            <label for="keterangan">Tujuan Pembelajaran :</label>
             <textarea type="text" rows="4" name="keterangan" class="form-control" id="keterangan" required>{{ $jadwal->keterangan }}
                 </textarea>
         </div>

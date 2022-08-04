@@ -241,7 +241,7 @@
                 <td></td>
                 <td>Melakukan gerakan menggantung (Misal,Bergelayut)</td>
                 <td><input type="radio" value="BB" name="fisik_motorik_b2" required
-                        {{ $raport->fisik_motorik_b2 === 'BB' ? 'checked' : '' }}>></td>
+                        {{ $raport->fisik_motorik_b2 === 'BB' ? 'checked' : '' }}></td>
                 <td><input type="radio" value="MB" name="fisik_motorik_b2"
                         {{ $raport->fisik_motorik_b2 === 'MB' ? 'checked' : '' }}></td>
                 <td><input type="radio" value="BSH" name="fisik_motorik_b2"

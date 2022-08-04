@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="keterangan">Keterangan :</label>
+                        <label for="keterangan">Tujuan Pembelajaran :</label>
                         <textarea type="text" rows="4" name="keterangan" class="form-control" id="keterangan" required>
                             </textarea>
                     </div>
@@ -84,7 +84,7 @@
                         <th>Guru</th>
                         <th>Kelas</th>
                         <th>Materi Kegiatan</th>
-                        <th>Keterangan</th>
+                        <th>Tujuan Pembelajaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
